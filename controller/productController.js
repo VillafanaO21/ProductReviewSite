@@ -25,7 +25,7 @@ module.exports.updateProduct = async function(req,res){
             id:req.params.id
         }
     });
-    res.redirect(`/product/profile/${req.params.id}`);
+    res.redirect(`/products/profile/${req.params.id}`);
 }
 
 module.exports.viewProducts = async function(req, res){
@@ -49,4 +49,13 @@ module.exports.addProduct = async function(req, res){
         description:req.body.description
     });
     res.redirect(`/products/profile/${result.id}`)
+}
+
+module.exports.deleteProduct = async function(req, res){
+    await Product.destroy({
+        where: {
+            id:req.params.id
+        }
+    });
+    res.redirect('/products')
 }
