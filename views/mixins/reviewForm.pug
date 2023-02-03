@@ -1,0 +1,25 @@
+mixin reviewForm(review, saveURL, cancelURL)
+
+    form(action=saverURL method='post')
+        div.review-form-container
+            div.form-input
+                label(for="customer_name") Customer
+                input(type="text" id="customer_name" name="customer_name" value=review.customer_name)
+
+            div.form-input
+                label(for="subject") Subject
+                input(type="text" id="subject" name="subject" value=review.subject)
+
+            div.form-input
+                label(for="rating") rating
+                select(id="rating" name="rating")
+                    each rating in [1,2,3,4,5]
+                        option(value=rating selected= (rating===review.rating)) #{rating}
+
+            div.form-input
+                label(for="description") Description
+                textarea(id="description" name="description" rows=10 cols=88) #{review.description}
+
+            div.form-ubtton
+                a.button(href=cancelURL) Cancel
+                button.button(type='submit') Save
