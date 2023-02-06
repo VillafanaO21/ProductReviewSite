@@ -9,10 +9,9 @@ block content
         a(href=`/products/delete/${product.id}`) Delete
     p= product.description
     a(href='/products') Back to Products
-
     h3=`${product.reviews.length} Reviews`
     a(href=`/products/${product.id}/reviews/add`) Add Reviews
     div.reviews
         each review in product.reviews
             +reviewPanel(review)
-            h3=review.subject
+            //h3=review.subject
